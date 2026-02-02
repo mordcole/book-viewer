@@ -2,7 +2,11 @@ import type { ChapterData } from '../types';
 
 const Chapter = ({chapter}: {chapter:ChapterData}) => {
   return (
-    <p>{chapter}</p>
+    <div>
+      {chapter.split('\n').map((paragraph, index) => (
+        <p key={index}>{paragraph}</p>
+      ))}
+    </div>
   )
 }
 

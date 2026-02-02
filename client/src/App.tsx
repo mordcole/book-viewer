@@ -16,7 +16,7 @@ const getToc = async () => {
 }
 
 const App = () => {
-  const [toc, setToc] = useState(null)
+  const [toc, setToc] = useState({book: '', chapters: []})
   const [selectedChapter, setSelectedChapter] = useState(null)
 
   useEffect(() => {
@@ -24,10 +24,6 @@ const App = () => {
       setToc(data)
     })
   }, [])
-
-  if (!toc) {
-    return null;
-  }
 
   const handleSelect = (chapter:string) => {
     getChapter(chapter).then(data => {
